@@ -14,5 +14,5 @@ def testFunc(func, cases: list, results:list) -> bool:
         if func(case) != result:
             Passed = False
             print(f"{func.__name__}({case}) should return {result}")
-    print("// tests complted")
+    print("// tests completed")
     return Passed

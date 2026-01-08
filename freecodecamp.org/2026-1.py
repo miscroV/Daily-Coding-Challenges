@@ -1,5 +1,42 @@
-# Started on Day 8
 from testing import testFunc
+
+def parse_unordered_list(markdown):
+    """ Jan-7 
+    Given the string of a valid unordered list in Markdown, return the equivalent HTML string.
+
+    An unordered list consists of one or more list items. A valid list item appears on its own line and:
+
+    Starts with a dash ("-"), followed by
+    At least one space, and then
+    The list item text.
+    The list is given as a single string with new lines separated by the newline character ("\n"). Do not include the newline characters in the item text.
+
+    Wrap each list item in HTML li tags, and the whole list of items in ul tags.
+
+    For example, given "- Item A\n- Item B", return "<ul><li>Item A</li><li>Item B</li></ul>".
+"""
+    items = markdown.split("\n")
+    items = [item[2:].strip() for item in items]
+    html="<ul>"
+    for item in items:
+        html += f"<li>{item}</li>"
+    html += "</ul>"
+    return html
+
+# UNIT TESTS: parse_unordered_list(markdown)
+cases = [
+    "- Item A\n- Item B",
+    "-  JavaScript\n-  Python",
+    "- 2 C Flour\n- 1/2 C Sugar\n- 1 Tsp Vanilla",
+    "- A-1\n- A-2\n- B-1"
+]
+results = [
+    "<ul><li>Item A</li><li>Item B</li></ul>",
+    "<ul><li>JavaScript</li><li>Python</li></ul>",
+    "<ul><li>2 C Flour</li><li>1/2 C Sugar</li><li>1 Tsp Vanilla</li></ul>",
+    "<ul><li>A-1</li><li>A-2</li><li>B-1</li></ul>"
+]
+if testFunc(parse_unordered_list, cases, results): print(f"{parse_unordered_list.__name__} passed testing")
 
 def is_sorted(arr):
     """ Jan-8
@@ -24,13 +61,13 @@ def is_sorted(arr):
     else:
         return "Not sorted"
 
-# UNIT TESTING      
-# cases = [
-#     [1,2,3,4,5],[10,8,6,4,2],[1,3,2,4,5],[3.14, 2.71, 1.61, 0.57],
-#     [12.3, 23.4, 34.5, 45.6, 56.7, 67.8, 78.9],[0.4, 0.5, 0.3]
-# ]
-# results =[
-#     "Ascending","Descending","Not sorted","Descending",
-#     "Ascending","Not sorted"
-# ]
-# if testFunc(is_sorted, cases, results): print(f"{is_sorted.__name__} passed testing")
+# UNIT TESTS: is_sorted(arr)     
+cases = [
+    [1,2,3,4,5],[10,8,6,4,2],[1,3,2,4,5],[3.14, 2.71, 1.61, 0.57],
+    [12.3, 23.4, 34.5, 45.6, 56.7, 67.8, 78.9],[0.4, 0.5, 0.3]
+]
+results =[
+    "Ascending","Descending","Not sorted","Descending",
+    "Ascending","Not sorted"
+]
+if testFunc(is_sorted, cases, results): print(f"{is_sorted.__name__} passed testing")
