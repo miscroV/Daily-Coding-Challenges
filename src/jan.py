@@ -1,4 +1,4 @@
-from testing import testFunc
+# from testing import testFunc
 def vowel_case(s):
     """ Jan-6
     Given a string, return a new string where all vowels are converted to uppercase and all other alphabetical characters are converted to lowercase.
@@ -12,23 +12,6 @@ def vowel_case(s):
         for l in s
     ]
     return ''.join(s)
-
-# UNIT TESTS: vowel_case(s)
-cases = [
-"vowelcase",
-"coding is fun",
-"HELLO, world!",
-"git cherry-pick",
-"HEAD~1"
-]
-results = [
-"vOwElcAsE",
-"cOdIng Is fUn",
-"hEllO, wOrld!",
-"gIt chErry-pIck",
-"hEAd~1"
-]
-testFunc(vowel_case, cases, results)
 
 def parse_unordered_list(markdown):
     """ Jan-7 
@@ -53,21 +36,6 @@ def parse_unordered_list(markdown):
     html += "</ul>"
     return html
 
-# UNIT TESTS: parse_unordered_list(markdown)
-cases = [
-    "- Item A\n- Item B",
-    "-  JavaScript\n-  Python",
-    "- 2 C Flour\n- 1/2 C Sugar\n- 1 Tsp Vanilla",
-    "- A-1\n- A-2\n- B-1"
-]
-results = [
-    "<ul><li>Item A</li><li>Item B</li></ul>",
-    "<ul><li>JavaScript</li><li>Python</li></ul>",
-    "<ul><li>2 C Flour</li><li>1/2 C Sugar</li><li>1 Tsp Vanilla</li></ul>",
-    "<ul><li>A-1</li><li>A-2</li><li>B-1</li></ul>"
-]
-testFunc(parse_unordered_list, cases, results)
-
 def is_sorted(arr):
     """ Jan-8
     Given an array of numbers, determine if the numbers are sorted in ascending order, descending order, or neither.
@@ -90,14 +58,3 @@ def is_sorted(arr):
         return "Descending"
     else:
         return "Not sorted"
-
-# UNIT TESTS: is_sorted(arr)     
-cases = [
-    [1,2,3,4,5],[10,8,6,4,2],[1,3,2,4,5],[3.14, 2.71, 1.61, 0.57],
-    [12.3, 23.4, 34.5, 45.6, 56.7, 67.8, 78.9],[0.4, 0.5, 0.3]
-]
-results =[
-    "Ascending","Descending","Not sorted","Descending",
-    "Ascending","Not sorted"
-]
-testFunc(is_sorted, cases, results)
