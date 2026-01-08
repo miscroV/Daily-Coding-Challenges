@@ -1,4 +1,28 @@
 from testing import testFunc
+def vowel_case(s):
+    vowels="aAeEiIoOuU"
+    s = [
+        l.upper() if l.lower() in vowels else l.lower() 
+        for l in s
+    ]
+    return ''.join(s)
+
+# UNIT TESTS: vowel_case(s)
+cases = [
+"vowelcase",
+"coding is fun",
+"HELLO, world!",
+"git cherry-pick",
+"HEAD~1"
+]
+results = [
+"vOwElcAsE",
+"cOdIng Is fUn",
+"hEllO, wOrld!",
+"gIt chErry-pIck",
+"hEAd~1"
+]
+testFunc(vowel_case, cases, results)
 
 def parse_unordered_list(markdown):
     """ Jan-7 
@@ -36,7 +60,7 @@ results = [
     "<ul><li>2 C Flour</li><li>1/2 C Sugar</li><li>1 Tsp Vanilla</li></ul>",
     "<ul><li>A-1</li><li>A-2</li><li>B-1</li></ul>"
 ]
-if testFunc(parse_unordered_list, cases, results): print(f"{parse_unordered_list.__name__} passed testing")
+testFunc(parse_unordered_list, cases, results)
 
 def is_sorted(arr):
     """ Jan-8
@@ -70,4 +94,4 @@ results =[
     "Ascending","Descending","Not sorted","Descending",
     "Ascending","Not sorted"
 ]
-if testFunc(is_sorted, cases, results): print(f"{is_sorted.__name__} passed testing")
+testFunc(is_sorted, cases, results)
