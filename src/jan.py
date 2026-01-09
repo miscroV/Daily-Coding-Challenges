@@ -1,6 +1,8 @@
-# from testing import testFunc
-def vowel_case(s):
+import math
+
+def vowel_case(s: str) -> str:
     """ Jan-6
+    
     Given a string, return a new string where all vowels are converted to uppercase and all other alphabetical characters are converted to lowercase.
 
     Vowels are "a", "e", "i", "o", and "u" in any case.
@@ -13,8 +15,9 @@ def vowel_case(s):
     ]
     return ''.join(s)
 
-def parse_unordered_list(markdown):
+def parse_unordered_list(markdown: str) -> str:
     """ Jan-7 
+
     Given the string of a valid unordered list in Markdown, return the equivalent HTML string.
 
     An unordered list consists of one or more list items. A valid list item appears on its own line and:
@@ -36,8 +39,9 @@ def parse_unordered_list(markdown):
     html += "</ul>"
     return html
 
-def is_sorted(arr):
+def is_sorted(arr: list) -> str:
     """ Jan-8
+    
     Given an array of numbers, determine if the numbers are sorted in ascending order, descending order, or neither.
 
     If the given array is:
@@ -58,3 +62,28 @@ def is_sorted(arr):
         return "Descending"
     else:
         return "Not sorted"
+
+def is_circular_prime(n: int) -> bool:
+    """Jan-9
+
+    Given an integer, determine if it is a circular prime.
+
+    A circular prime is an integer where all rotations of its digits are themselves prime.
+
+    For example, 197 is a circular prime because all rotations of its digits: 197, 971, and 719, are prime numbers.
+    """
+    # get circulars:
+    circulars = []
+    temp = str(n)
+    for i in range(0,len(temp)):
+        temp = f"{temp[1:]}{temp[:1]}"
+        circulars.append(int(temp))
+    print(circulars)
+
+    # get all prime
+    is_c_prime = True
+    for n in circulars:
+        for i in range(2,int(math.sqrt(n))):
+            if (n % i) == 0:
+                is_c_prime = False 
+    return is_c_prime

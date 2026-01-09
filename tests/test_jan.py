@@ -43,3 +43,16 @@ def test_parse_unordered_list(case, result):
 )   
 def test_is_sorted(case, result):
     assert is_sorted(case) == result
+
+@pytest.mark.parametrize(
+        "case, result",
+    [
+        (197, True),
+        (23, False),
+        (13, True),
+        (89, False),
+        (1193, True)
+    ]
+)   
+def test_is_circular_prime(case, result):
+    assert is_circular_prime(case) == result
