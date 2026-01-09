@@ -61,7 +61,9 @@ def is_sorted(arr: list) -> str:
         return "Not sorted"
 
 def is_circular_prime(n: int) -> bool:
-    """Given an integer, determine if it is a circular prime.
+    """Jan-9
+    
+    Given an integer, determine if it is a circular prime.
 
     A circular prime is an integer where all rotations of its digits are themselves prime.
 
