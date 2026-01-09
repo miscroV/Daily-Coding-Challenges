@@ -58,3 +58,23 @@ def is_sorted(arr):
         return "Descending"
     else:
         return "Not sorted"
+
+import math
+
+def is_circular_prime(n):
+    # get circulars:
+    circulars = []
+    temp = str(n)
+    for i in range(0,len(temp)):
+        temp = f"{temp[1:]}{temp[:1]}"
+        circulars.append(int(temp))
+    print(circulars)
+
+    # get all prime
+    is_c_prime = True
+    for n in circulars:
+        for i in range(2,int(math.sqrt(n))):
+            if (n % i) == 0:
+                is_c_prime = False 
+    return is_c_prime
+
