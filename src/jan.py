@@ -2,6 +2,7 @@ import math
 
 def vowel_case(s: str) -> str:
     """ Jan-6
+    
     Given a string, return a new string where all vowels are converted to uppercase and all other alphabetical characters are converted to lowercase.
 
     Vowels are "a", "e", "i", "o", and "u" in any case.
@@ -16,6 +17,7 @@ def vowel_case(s: str) -> str:
 
 def parse_unordered_list(markdown: str) -> str:
     """ Jan-7 
+
     Given the string of a valid unordered list in Markdown, return the equivalent HTML string.
 
     An unordered list consists of one or more list items. A valid list item appears on its own line and:
@@ -39,6 +41,7 @@ def parse_unordered_list(markdown: str) -> str:
 
 def is_sorted(arr: list) -> str:
     """ Jan-8
+    
     Given an array of numbers, determine if the numbers are sorted in ascending order, descending order, or neither.
 
     If the given array is:
@@ -62,7 +65,7 @@ def is_sorted(arr: list) -> str:
 
 def is_circular_prime(n: int) -> bool:
     """Jan-9
-    
+
     Given an integer, determine if it is a circular prime.
 
     A circular prime is an integer where all rotations of its digits are themselves prime.
