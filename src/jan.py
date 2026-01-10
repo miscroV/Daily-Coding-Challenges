@@ -89,10 +89,13 @@ def is_circular_prime(n: int) -> bool:
     return is_c_prime
 
 def tic_tac_toe(board):
-    views =  [board[i] for i in range(0,3)]                              # horizontal wins
-    views += [[board[i][k] for i in range(0,3)] for k in range(0,3)]     # vertical wins
-    views += [[board[i][i] for i in range(0,3)]]                         # Diagonal 1
-    views += [[board[i][k] for i,k  in zip(range(0,3),range(2,-1,-1))]]  # Diagonal 2
+    if len(board) != len([i for i in zip(*board)]): return "Bad Board"
+
+    views =  [board[i] for i in range(0,len(board))]                # horizontal wins
+    views += [[i for i in zip(*board)]]                             # vertical wins
+    views += [[board[i][i] for i in range(0,len(board))]]           # Diagonal 1
+    views += [[board[i][k] for i,k  in 
+               zip(range(0,len(board)),range(len(board)-1,-1,-1))]] # Diagonal 2
     
     winner = None
     for view in views:
@@ -101,3 +104,12 @@ def tic_tac_toe(board):
             break;
 
     return f"{winner} wins" if winner != None else "Draw"
+
+print(
+    tic_tac_toe(
+        [["X", "X", "X", "X"], 
+         ["O", "O", "X", "O"], 
+         ["O", "X", "O", "O"],
+         ["O", "O", "X", "O"]]
+    )
+)
