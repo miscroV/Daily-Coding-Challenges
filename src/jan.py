@@ -88,28 +88,35 @@ def is_circular_prime(n: int) -> bool:
                 is_c_prime = False 
     return is_c_prime
 
-def tic_tac_toe(board):
+def tic_tac_toe(board: list[list]) -> str:
+    """ Jan 10
+    
+    Given a 3×3 matrix (an array of arrays) representing a completed Tic-Tac-Toe game, determine the winner.
+
+    Each element in the given matrix is either an "X" or "O".
+
+    A player wins if they have three of their characters in a row - horizontally, vertically, or diagonally.
+
+    Return:
+
+    "X wins" if player X has three in a row.
+    "O wins" if player O has three in a row.
+    "Draw" if no player has three in a row.
+
+    """
+    # Checks for if board is proportional
     if len(board) != len([i for i in zip(*board)]): return "Bad Board"
 
-    views =  [board[i] for i in range(0,len(board))]                # horizontal wins
-    views += [[i for i in zip(*board)]]                             # vertical wins
+    views: list = [board[i] for i in range(0,len(board))]           # horizontal wins
+    views += [list(i) for i in zip(*board)]                         # vertical wins
     views += [[board[i][i] for i in range(0,len(board))]]           # Diagonal 1
     views += [[board[i][k] for i,k  in 
                zip(range(0,len(board)),range(len(board)-1,-1,-1))]] # Diagonal 2
     
-    winner = None
+    winner: str = None
     for view in views:
         if all(cell == view[0] for cell in view):
             winner = view[0]
             break;
 
     return f"{winner} wins" if winner != None else "Draw"
-
-print(
-    tic_tac_toe(
-        [["X", "X", "X", "X"], 
-         ["O", "O", "X", "O"], 
-         ["O", "X", "O", "O"],
-         ["O", "O", "X", "O"]]
-    )
-)
