@@ -97,11 +97,9 @@ def tic_tac_toe(board):
     views += [[board[i][k] for i,k  in 
                zip(range(0,len(board)),range(len(board)-1,-1,-1))]] # Diagonal 2
     
-    winner = None
-    for view in views:
-        if all(cell == view[0] for cell in view):
-            winner = view[0]
-            break;
+    wins   = [view[0] if all(cell == view[0] for cell in view) 
+              else None for view in views]
+    winner = [win for win in wins if win is not None][0]
 
     return f"{winner} wins" if winner != None else "Draw"
 
