@@ -103,5 +103,3 @@ def tic_tac_toe(board):
             break;
 
     return f"{winner} wins" if winner != None else "Draw"
-
-print(tic_tac_toe([["X", "X", "X"], ["O", "O", "X"], ["O", "X", "O"]]))
