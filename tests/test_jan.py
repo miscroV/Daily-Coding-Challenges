@@ -56,3 +56,35 @@ def test_is_sorted(case, result):
 )   
 def test_is_circular_prime(case, result):
     assert is_circular_prime(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",  
+    [
+        ([["X", "X", "X"], 
+          ["O", "O", "X"], 
+          ["O", "X", "O"]],
+          "X wins"),
+        ([["X", "O", "X"], 
+          ["X", "O", "X"], 
+          ["O", "O", "X"]],
+          "O wins"),
+        ([["X", "O", "X"], 
+          ["O", "X", "O"], 
+          ["O", "X", "O"]],
+          "Draw"),
+        ([["X", "X", "O"],
+          ["X", "O", "X"],
+          ["O", "X", "X"]],
+          "O wins"),
+        ([["X", "O", "O"], 
+          ["O", "X", "O"], 
+          ["O", "X", "X"]],
+          "X wins"),
+        ([["O", "X", "X"], 
+          ["X", "O", "O"], 
+          ["X", "O", "X"]],
+          "Draw")
+    ]
+)
+def test_tic_tac_toe(case, result):
+    assert tic_tac_toe(case) == result

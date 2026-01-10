@@ -89,7 +89,6 @@ def is_circular_prime(n: int) -> bool:
     return is_c_prime
 
 def tic_tac_toe(board):
-    winner = None
     views =  [board[i] for i in range(0,3)]                              # horizontal wins
     views += [[board[i][k] for i in range(0,3)] for k in range(0,3)]     # vertical wins
     views += [[board[i][i] for i in range(0,3)]]                         # Diagonal 1
@@ -97,8 +96,7 @@ def tic_tac_toe(board):
     
     winner = None
     for view in views:
-        is_win = view[0] == view[1] == view[2] 
-        if is_win:
+        if all(cell == view[0] for cell in view):
             winner = view[0]
             break;
 
