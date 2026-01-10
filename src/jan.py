@@ -87,3 +87,7 @@ def is_circular_prime(n: int) -> bool:
             if (n % i) == 0:
                 is_c_prime = False 
     return is_c_prime
+
+def tic_tac_toe(board):
+    winner = None
+    return winner
