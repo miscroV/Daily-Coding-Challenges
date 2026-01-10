@@ -102,7 +102,6 @@ def tic_tac_toe(board):
         if all(cell == view[0] for cell in view):
             winner = view[0]
             break;
-    
 
     return f"{winner} wins" if winner != None else "Draw"
 
