@@ -120,3 +120,32 @@ def tic_tac_toe(board: list[list]) -> str:
             break;
 
     return f"{winner} wins" if winner != None else "Draw"
+
+def golf_score(par: int, strokes: int) -> str:
+    """ Jan 11
+    
+    Given two integers, the par for a golf hole and the number of strokes a golfer took on that hole, return the golfer's score using golf terms.
+
+    Return:
+
+    "Hole in one!" if it took one stroke.
+    "Eagle" if it took two strokes less than par.
+    "Birdie" if it took one stroke less than par.
+    "Par" if it took the same number of strokes as par.
+    "Bogey" if it took one stroke more than par.
+    "Double bogey" if took two strokes more than par.
+
+    """
+
+    if strokes == 1:
+        return "Hole in one!"
+    
+    compare = par - strokes
+
+    match compare:
+        case  2: return "Eagle"
+        case  1: return "Birdie"
+        case  0: return "Par"
+        case -1: return "Bogey"
+        case -2: return "Double bogey"
+        case  _: return ""
