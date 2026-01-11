@@ -88,3 +88,17 @@ def test_is_circular_prime(case, result):
 )
 def test_tic_tac_toe(case, result):
     assert tic_tac_toe(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ((3,3) ,"Par"),
+        ((4, 3),"Birdie"),
+        ((3, 1),"Hole in one!"),
+        ((5, 7),"Double bogey"),
+        ((4, 5),"Bogey"),
+        ((5, 3),"Eagle")
+    ]
+)
+def test_golf_score(case, result):
+    assert golf_score(*case) == result
