@@ -170,7 +170,10 @@ def get_number_of_plants(field_size: float, unit: str, crop: str) -> int:
     match unit:
         case "acres": sqrMeters = 4046.86
         case "hectares": sqrMeters = 10000
+        case _: raise ValueError("Invalid unit, Received: {unit}\n\tPermitted Values: (\"acres\"|\"hectares\")")
 
+    if not (isinstance(sqrMeters, float) or isinstance(sqrMeters, int)):
+        raise ValueError("Invalid field_size, Received:{field_size}\n\tExpected type float or int.")
     sqrMeters *= field_size
 
     match crop:
@@ -179,5 +182,7 @@ def get_number_of_plants(field_size: float, unit: str, crop: str) -> int:
         case "soybeans": sqrMeterPerPlant = 0.5
         case "tomatoes": sqrMeterPerPlant = 0.25
         case "lettuce" : sqrMeterPerPlant = 0.2
+        case _: raise ValueError("Invalid crop, Received:{crop}\n\tPermitted Values: (\"corn\"|\"wheat\"|\"soybeans\"|\"tomatoes\"|\"lettuce\")")
+
         
     return int(sqrMeters/sqrMeterPerPlant)
