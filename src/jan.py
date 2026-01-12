@@ -150,3 +150,18 @@ def golf_score(par: int, strokes: int) -> str:
         case -2: return "Double bogey"
         case  _: return ""
 
+def get_number_of_plants(field_size, unit, crop):
+    match unit:
+        case "acres": sqrMeters = 4046.86
+        case "hectares": sqrMeters = 10000
+
+    sqrMeters *= field_size
+
+    match crop:
+        case "corn"    : sqrMeterPerPlant = 1
+        case "wheat"   : sqrMeterPerPlant = 0.1
+        case "soybeans": sqrMeterPerPlant = 0.5
+        case "tomatoes": sqrMeterPerPlant = 0.25
+        case "lettuce" : sqrMeterPerPlant = 0.2
+        
+    return int(sqrMeters/sqrMeterPerPlant)
