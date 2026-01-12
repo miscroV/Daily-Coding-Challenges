@@ -1,7 +1,7 @@
 import math
 
 def vowel_case(s: str) -> str:
-    """ Jan-6
+    """ Jan 6
     
     Given a string, return a new string where all vowels are converted to uppercase and all other alphabetical characters are converted to lowercase.
 
@@ -16,7 +16,7 @@ def vowel_case(s: str) -> str:
     return ''.join(s)
 
 def parse_unordered_list(markdown: str) -> str:
-    """ Jan-7 
+    """ Jan 7 
 
     Given the string of a valid unordered list in Markdown, return the equivalent HTML string.
 
@@ -40,7 +40,7 @@ def parse_unordered_list(markdown: str) -> str:
     return html
 
 def is_sorted(arr: list) -> str:
-    """ Jan-8
+    """ Jan 8
     
     Given an array of numbers, determine if the numbers are sorted in ascending order, descending order, or neither.
 
@@ -64,7 +64,7 @@ def is_sorted(arr: list) -> str:
         return "Not sorted"
 
 def is_circular_prime(n: int) -> bool:
-    """Jan-9
+    """Jan 9
 
     Given an integer, determine if it is a circular prime.
 
@@ -150,8 +150,10 @@ def golf_score(par: int, strokes: int) -> str:
         case -2: return "Double bogey"
         case  _: return ""
 
-def get_number_of_plants(field_size, unit, crop):
-    """Given an integer representing the size of your farm field, and "acres" or "hectares" representing the unit for the size of your farm field, and a type of crop, determine how many plants of that type you can fit in your field.
+def get_number_of_plants(field_size: float, unit: str, crop: str) -> int:
+    """ Jan 12
+    
+    Given an integer representing the size of your farm field, and "acres" or "hectares" representing the unit for the size of your farm field, and a type of crop, determine how many plants of that type you can fit in your field.
 
     1 acre equals 4046.86 square meters.
     1 hectare equals 10,000 square meters.
