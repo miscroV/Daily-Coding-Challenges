@@ -30,7 +30,7 @@ def parse_unordered_list(markdown: str) -> str:
     Wrap each list item in HTML li tags, and the whole list of items in ul tags.
 
     For example, given "- Item A\n- Item B", return "<ul><li>Item A</li><li>Item B</li></ul>".
-"""
+    """
     items = markdown.split("\n")
     items = [item[2:].strip() for item in items]
     html="<ul>"
@@ -150,3 +150,32 @@ def golf_score(par: int, strokes: int) -> str:
         case -2: return "Double bogey"
         case  _: return ""
 
+def get_number_of_plants(field_size, unit, crop):
+    """Given an integer representing the size of your farm field, and "acres" or "hectares" representing the unit for the size of your farm field, and a type of crop, determine how many plants of that type you can fit in your field.
+
+    1 acre equals 4046.86 square meters.
+    1 hectare equals 10,000 square meters.
+    Here's a list of crops that will be given as input and how much space a single plant takes:
+
+    Crop	Space per plant
+    "corn"	1 square meter
+    "wheat"	0.1 square meters
+    "soybeans"	0.5 square meters
+    "tomatoes"	0.25 square meters
+    "lettuce"	0.2 square meters
+    Return the number of plants that fit in the field, rounded down to the nearest whole plant.
+    """
+    match unit:
+        case "acres": sqrMeters = 4046.86
+        case "hectares": sqrMeters = 10000
+
+    sqrMeters *= field_size
+
+    match crop:
+        case "corn"    : sqrMeterPerPlant = 1
+        case "wheat"   : sqrMeterPerPlant = 0.1
+        case "soybeans": sqrMeterPerPlant = 0.5
+        case "tomatoes": sqrMeterPerPlant = 0.25
+        case "lettuce" : sqrMeterPerPlant = 0.2
+        
+    return int(sqrMeters/sqrMeterPerPlant)
