@@ -102,3 +102,16 @@ def test_tic_tac_toe(case, result):
 )
 def test_golf_score(case, result):
     assert golf_score(*case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ((1,     "acres",    "corn"    ), 4046  ),
+        ((2,     "hectares", "lettuce" ), 100000),
+        ((20,    "acres",    "soybeans"), 161874),
+        ((3.75,  "hectares", "tomatoes"), 150000),
+        ((16.75, "acres",    "tomatoes"), 271139)
+    ]
+)
+def test_get_number_of_plants(case, result):
+    get_number_of_plants(*case) == result
