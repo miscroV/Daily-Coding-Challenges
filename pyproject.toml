@@ -1,5 +1,4 @@
 [tool.pytest.ini_options]
 pythonpath = [
-  "freecodecamp.org/src",
-  "HackerRank/src"
+  "src"
 ]
