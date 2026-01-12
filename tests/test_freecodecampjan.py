@@ -1,5 +1,5 @@
 import pytest
-from src.jan import *
+from src.freecodecampjan import *
 
 @pytest.mark.parametrize(
     "case, result",
