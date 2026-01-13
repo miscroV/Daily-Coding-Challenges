@@ -170,10 +170,10 @@ def get_number_of_plants(field_size: float, unit: str, crop: str) -> int:
     match unit:
         case "acres": sqrMeters = 4046.86
         case "hectares": sqrMeters = 10000
-        case _: raise ValueError("Invalid unit, Received: {unit}\n\tPermitted Values: (\"acres\"|\"hectares\")")
+        case _: raise ValueError(f"Invalid unit, Received: {unit}\n\tPermitted Values: (\"acres\"|\"hectares\")")
 
     if not (isinstance(sqrMeters, float) or isinstance(sqrMeters, int)):
-        raise ValueError("Invalid field_size, Received:{field_size}\n\tExpected type float or int.")
+        raise ValueError(f"Invalid field_size, Received:{field_size}\n\tExpected type float or int.")
     sqrMeters *= field_size
 
     match crop:
@@ -182,7 +182,19 @@ def get_number_of_plants(field_size: float, unit: str, crop: str) -> int:
         case "soybeans": sqrMeterPerPlant = 0.5
         case "tomatoes": sqrMeterPerPlant = 0.25
         case "lettuce" : sqrMeterPerPlant = 0.2
-        case _: raise ValueError("Invalid crop, Received:{crop}\n\tPermitted Values: (\"corn\"|\"wheat\"|\"soybeans\"|\"tomatoes\"|\"lettuce\")")
+        case _: raise ValueError(f"Invalid crop, Received:{crop}\n\tPermitted Values: (\"corn\"|\"wheat\"|\"soybeans\"|\"tomatoes\"|\"lettuce\")")
 
         
     return int(sqrMeters/sqrMeterPerPlant)
+
+def odd_or_even(n: int) -> str:
+    """ Jan 13
+
+    Given a positive integer, return "Odd" if it's an odd number, and "Even" is it's even.
+    """
+
+    # Enforce Requirements
+    if not isinstance(n, int): raise TypeError(f"Invalid Value, Received: {n}\n\tExpected int, got {type(n).__name__}")
+    if not (n > 0): raise ValueError(f"Invalid Value, Received: {n}\n\tValue must be a postivie integer")
+    # check value of last bit is 1, if 1 return odd else even
+    return "Odd" if n & 1 else "Even"
