@@ -1,6 +1,4 @@
 .pytest_cach/
-src/__pycache__/
-tests/__pycach__/
 *.pyc
 __pycache__
 
