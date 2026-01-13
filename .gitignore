@@ -1,3 +1,4 @@
 .pytest_cach/
-__pycach__/
-__pycach__/*
+*.pyc
+__pycache__
+
