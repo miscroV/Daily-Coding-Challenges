@@ -195,7 +195,7 @@ def odd_or_even(n: int) -> str:
 
     # Enforce Requirements
     if not isinstance(n, int): raise TypeError(f"Invalid Value, Received: {n}\n\tExpected int, got {type(n).__name__}")
-    if not (n > 0): raise ValueError(f"Invalid Value, Received: {n}\n\tValue must be a postivie integer")
-    
+    if not (n > 0): raise ValueError(f"Invalid Value, Received: {n}\n\tValue must be a postiveinteger")
+
     # check value of last bit is 1, if 1 return odd else even
     return "Odd" if n & 1 else "Even"
