@@ -114,4 +114,17 @@ def test_golf_score(case, result):
     ]
 )
 def test_get_number_of_plants(case, result):
-    get_number_of_plants(*case) == result
+    assert get_number_of_plants(*case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        (1,"Odd"),
+        (2,"Even"),
+        (13,"Odd"),
+        (196,"Even"),
+        (123456789,"Odd")
+    ]
+)
+def test_odd_or_even(case,result):
+    assert odd_or_even(case) == result
