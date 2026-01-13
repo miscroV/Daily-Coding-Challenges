@@ -1,3 +1,4 @@
 .pytest_cach/
-src/__pycach__/
-__pycach__/*
+src/__pycache__/
+tests/__pycach__/
+
