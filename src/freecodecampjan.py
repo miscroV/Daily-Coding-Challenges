@@ -205,6 +205,6 @@ import re
 def parse_link(markdown):
     label = re.search(r"\[.*\]", markdown).group()[1:-1]
     link  = re.search(r"\(.*\)", markdown).group()[1:-1]
-    return f"<a href={link}>{label}</a>"
+    return f"<a href=\"{link}\">{label}</a>"
 
 print(parse_link("[freeCodeCamp](https://freecodecamp.org/)"))
