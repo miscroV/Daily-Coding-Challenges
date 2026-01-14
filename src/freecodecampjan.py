@@ -199,3 +199,14 @@ def odd_or_even(n: int) -> str:
 
     # check value of last bit is 1, if 1 return odd else even
     return "Odd" if n & 1 else "Even"
+
+import re
+
+def parse_link(markdown):
+    label = re.match(r"\[.*\]", markdown)
+    link  = re.match(r"\(.*\)", markdown)
+    print(label)
+    print(link)
+    return (label, link)
+
+print(parse_link("[freeCodeCamp](https://freecodecamp.org/)"))
