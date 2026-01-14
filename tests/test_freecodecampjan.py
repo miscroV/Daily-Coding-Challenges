@@ -128,3 +128,17 @@ def test_get_number_of_plants(case, result):
 )
 def test_odd_or_even(case,result):
     assert odd_or_even(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ("[freeCodeCamp](https://freecodecamp.org/)",
+            '<a href="https://freecodecamp.org/">freeCodeCamp</a>'),
+        ("[Donate to our charity.](https://www.freecodecamp.org/donate/)",
+            '<a href="https://www.freecodecamp.org/donate/">Donate to our charity.</a>'),
+        ("[Contribute to our repository at https://github.com/freeCodeCamp/freeCodeCamp.](https://github.com/freeCodeCamp/freeCodeCamp/)",
+            '<a href="https://github.com/freeCodeCamp/freeCodeCamp/">Contribute to our repository at https://github.com/freeCodeCamp/freeCodeCamp.</a>'),
+    ]
+)
+def test_parse_link(case,result):
+    assert parse_link(case) == result
