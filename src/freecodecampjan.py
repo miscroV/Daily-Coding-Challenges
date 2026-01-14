@@ -203,8 +203,8 @@ def odd_or_even(n: int) -> str:
 import re
 
 def parse_link(markdown):
-    label = re.match(r"\[.*\]", markdown)
-    link  = re.match(r"\(.*\)", markdown)
+    label = re.search(r"\[.*\]", markdown)
+    link  = re.search(r"\(.*\)", markdown)
     print(label)
     print(link)
     return (label, link)
