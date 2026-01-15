@@ -142,3 +142,15 @@ def test_odd_or_even(case,result):
 )
 def test_parse_link(case,result):
     assert parse_link(case) == result
+
+@pytest.mark.parametrize(
+    "case, result", 
+    [
+        (["A", "B"],["B", "A"]),
+        ([25, 20],[20, 25]),
+        ([True, False],[False, True]),
+        (["1", 1],[1, "1"])
+    ]
+)
+def test_array_swap(case,result):
+    assert array_swap(case) == result
