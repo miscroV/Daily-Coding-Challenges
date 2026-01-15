@@ -217,4 +217,15 @@ def parse_link(markdown):
     link  = re.search(r"\(.*\)", markdown).group()[1:-1]
     return f"<a href=\"{link}\">{label}</a>"
 
-print(parse_link("[freeCodeCamp](https://freecodecamp.org/)"))
+def array_swap(arr: list) -> list:
+    """ Jan 15
+    
+    Given an array with two values, return an array with the values swapped.
+
+    For example, given ["A", "B"] return ["B", "A"].    
+    """
+    if len(arr) > 2: raise ValueError(
+        f"Invalid Value, Received: {arr},\n\tExpected list of size 2, Received list of size {len(arr)}"
+        )
+    
+    return [arr[1],arr[0]]
