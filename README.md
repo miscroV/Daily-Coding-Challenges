@@ -10,3 +10,8 @@ then make a pull request and merge my solution to main.
 Each challenge source has a folder containing a src file and tests file.
 This way I can build unit tests as I create solution to problems. Python
 will usually use pytest.
+
+## numpyDocStrings.py
+just a copy of https://sphinxcontrib-napoleon.readthedocs.io/en/latest/example_numpy.html
+for referencing as I work on docstring practice as well. 
+
