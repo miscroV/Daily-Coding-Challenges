@@ -229,3 +229,64 @@ def array_swap(arr: list) -> list:
         )
     
     return [arr[1],arr[0]]
+
+def is_integer_hypotenuse(a: int, b: int) -> bool:
+    """ Jan 16
+    
+    Given two positive integers representing the lengths for the two legs (the two short sides) of a right triangle, determine whether the hypotenuse is an integer.
+
+    The length of the hypotenuse is calculated by adding the squares of the two leg lengths together and then taking the square root of that total (a2 + b2 = c2).
+
+
+    """
+    h = math.sqrt((a**2) + (b**2))
+
+    return True if h == int(h) else False
+
+
+print(is_integer_hypotenuse(2,4))
+def doctest() -> None:
+    """
+    Docstring for empty, just to show python docstring formats
+
+    Parameters
+    ----------
+    a : type (int|float|etc)
+        Note: when documenting classes don't include the 'self' variable (duh)
+
+    Returns
+    -------
+    type(int|float|etc)
+        return description
+
+    Examples
+    --------
+    empty()
+
+    Notes
+    -----
+        Section breaks created with 2 blank lines
+
+
+    Attributes
+    ----------
+    variable: type
+        document attributes here or immediately following the variable. 
+
+    Raises
+    ------
+    ValueError
+        any exceptions that the function can raise
+
+    Yields
+    ------
+        section is for generators that yeild a value rather than return a result. 
+
+    Notes
+    -----
+        when documenting private class members (_func()) they will not be included in output. 
+    
+    """
+
+    #: doc comments for *inline* and adjacent docs too
+    return print(help(__name__))
