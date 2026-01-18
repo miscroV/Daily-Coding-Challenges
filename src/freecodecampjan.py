@@ -286,8 +286,8 @@ def knight_moves(position: str) -> int:
 
     # movements +/-2 Letter and +/-1 number or +/-1 letter and +/-2 numbers
 
-    chessboard = [[f"{l}{n}" for n in range(8,0,-1)] for l in "ABCDEFGH"]
-
+    chessboard = [f"{l}{n}" for n in range(8,0,-1) for l in "ABCDEFGH"]
+    knight_choices = []
     print(chessboard)
 
 knight_moves("A1")
