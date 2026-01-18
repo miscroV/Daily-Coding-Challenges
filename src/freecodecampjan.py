@@ -1,4 +1,5 @@
 import math
+import re
 
 def vowel_case(s: str) -> str:
     """ Jan 6
@@ -199,8 +200,6 @@ def odd_or_even(n: int) -> str:
 
     # check value of last bit is 1, if 1 return odd else even
     return "Odd" if n & 1 else "Even"
-
-import re
 
 def parse_link(markdown):
     """ Jan 14
