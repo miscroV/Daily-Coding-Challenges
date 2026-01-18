@@ -229,3 +229,16 @@ def array_swap(arr: list) -> list:
         )
     
     return [arr[1],arr[0]]
+
+def is_integer_hypotenuse(a: int, b: int) -> bool:
+    """ Jan 16
+    
+    Given two positive integers representing the lengths for the two legs (the two short sides) of a right triangle, determine whether the hypotenuse is an integer.
+
+    The length of the hypotenuse is calculated by adding the squares of the two leg lengths together and then taking the square root of that total (a2 + b2 = c2).
+
+
+    """
+    h = math.sqrt((a**2) + (b**2))
+
+    return True if h == int(h) else False

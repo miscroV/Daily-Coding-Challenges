@@ -119,14 +119,14 @@ def test_get_number_of_plants(case, result):
 @pytest.mark.parametrize(
     "case, result",
     [
-        (1,"Odd"),
-        (2,"Even"),
-        (13,"Odd"),
-        (196,"Even"),
-        (123456789,"Odd")
+        (1,         "Odd" ),
+        (2,         "Even"),
+        (13,        "Odd" ),
+        (196,       "Even"),
+        (123456789, "Odd" )
     ]
 )
-def test_odd_or_even(case,result):
+def test_odd_or_even(case, result):
     assert odd_or_even(case) == result
 
 @pytest.mark.parametrize(
@@ -140,17 +140,32 @@ def test_odd_or_even(case,result):
             '<a href="https://github.com/freeCodeCamp/freeCodeCamp/">Contribute to our repository at https://github.com/freeCodeCamp/freeCodeCamp.</a>'),
     ]
 )
-def test_parse_link(case,result):
+def test_parse_link(case, result):
     assert parse_link(case) == result
 
 @pytest.mark.parametrize(
     "case, result", 
     [
-        (["A", "B"],["B", "A"]),
-        ([25, 20],[20, 25]),
-        ([True, False],[False, True]),
-        (["1", 1],[1, "1"])
+        (["A", "B"],    ["B", "A"]   ),
+        ([25, 20],      [20, 25]     ),
+        ([True, False], [False, True]),
+        (["1", 1],      [1, "1"]     )
     ]
 )
-def test_array_swap(case,result):
+def test_array_swap(case, result):
     assert array_swap(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ((3, 4),      True ),
+        ((2, 3),      False),
+        ((5, 12),     True ),
+        ((10, 10),    False),
+        ((780, 1040), True ),
+        ((250, 333),  False)
+    ]
+)
+def test_is_integer_hypotenuse(case, result):
+    assert is_integer_hypotenuse(*case) == result
+
