@@ -1,5 +1,4 @@
 import math
-import numpy as np
 
 def vowel_case(s: str) -> str:
     """ Jan 6
@@ -245,7 +244,8 @@ def is_integer_hypotenuse(a: int, b: int) -> bool:
     return True if h == int(h) else False
 
 def knight_moves(position: str) -> int:
-    """
+    """ Jan 17
+
     Given the position of a knight on a chessboard, return the number of valid squares the knight can move to.
 
     Parameters
@@ -284,7 +284,7 @@ def knight_moves(position: str) -> int:
 
     """
     
-    # movements +/-2 Letter and +/-1 number or +/-1 letter and +/-2 numbers
+
     files, ranks = "ABCDEFGH", "87654321"
     move_indexes = [(-2,-1),(-2,1),(-1,-2),(-1,2),(1,-2),(1,2),(2,-1),(2,1)]
     moves = len(
@@ -297,5 +297,46 @@ def knight_moves(position: str) -> int:
     )
     return moves
 
+def gets_free_shipping(cart: list[str], minimum: float) -> bool:
+    """ Jan 18
+    
+    Given an array of strings representing items in your shopping cart, and a number for the minimum order amount to qualify for free shipping, determine if the items in your shopping cart qualify for free shipping.
 
+    Parameters
+    ----------
+    cart: list[str]
+        The list of items in the cart in string format.
+    minimum: float
+        the minimum cost for free shipping
+
+    Returns
+    -------
+    bool
+        Whether the cost of the cart is high enough for free shipping
+
+    
+    Notes
+    -----
+
+    The given array will contain items from the list below:
+        Item 	Price
+        "shirt" --- 34.25
+        "jeans" --- 48.50
+        "shoes" --- 75.00
+        "hat" ----- 19.95
+        "socks" --- 15.00
+        "jacket" -- 109.95
+    """
+
+    item_costs = {
+        "shirt" : 34.25,
+        "jeans" : 48.50,
+        "shoes" : 75.00,
+        "hat"   : 19.95,
+        "socks" : 15.00,
+        "jacket": 109.95
+    }
+    total = 0
+    for item in cart: total += item_costs.get(item, 0)
+    return total > minimum
 
