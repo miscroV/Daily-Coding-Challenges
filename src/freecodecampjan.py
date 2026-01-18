@@ -287,9 +287,12 @@ def knight_moves(position: str) -> int:
     # movements +/-2 Letter and +/-1 number or +/-1 letter and +/-2 numbers
     files, ranks = "ABCDEFGH", "87654321"
     move_indexes = [(-2,-1),(-2,1),(-1,-2),(-1,2),(1,-2),(1,2),(2,-1),(2,1)]
-    for move in move_indexes:
-        file, rank = files.find(position[0]), ranks.find(position[1])
-        print(file, rank)
+    moves = [
+        (files.find(position[0]) + f, ranks.find(position[1]) + r)
+        for r,f in move_indexes
+        ]
+    print(moves)
+        
     chessboard = np.array([[f"{l}{n}" for n in ranks] for l in files])
     if not position in chessboard: 
         raise ValueError(f"Invalid Value, Receive: {position}\n\t value not a valid position on chessboard\n{chessboard}")
@@ -297,6 +300,6 @@ def knight_moves(position: str) -> int:
     possible_moves = []
     
 
-knight_moves("C6")
+knight_moves("A1")
 
 
