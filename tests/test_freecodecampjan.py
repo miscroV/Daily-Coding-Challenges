@@ -169,3 +169,15 @@ def test_array_swap(case, result):
 def test_is_integer_hypotenuse(case, result):
     assert is_integer_hypotenuse(*case) == result
 
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ("A1", 2),
+        ("D4", 8),
+        ("G6", 6),
+        ("B8", 3),
+        ("H3", 4),
+    ]
+)
+def test_knight_moves(case, result):
+    assert knight_moves(case) == result
