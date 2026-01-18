@@ -181,3 +181,23 @@ def test_is_integer_hypotenuse(case, result):
 )
 def test_knight_moves(case, result):
     assert knight_moves(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ((["shoes"], 50),
+         True),
+        ((["hat", "socks"], 50),
+         False),
+        ((["jeans", "shirt", "jacket"], 75),
+         True),
+        ((["socks", "socks", "hat"], 75),
+         False),
+        ((["shirt", "shirt", "jeans", "socks"], 100),
+         True),
+        ((["hat", "socks", "hat", "jeans", "shoes", "hat"], 200),
+         False)
+    ]
+)
+def test_gets_free_shipping(case,result):
+    assert gets_free_shipping(*case) == result
