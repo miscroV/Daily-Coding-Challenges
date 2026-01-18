@@ -1,4 +1,5 @@
 import math
+import numpy as np
 
 def vowel_case(s: str) -> str:
     """ Jan 6
@@ -283,13 +284,19 @@ def knight_moves(position: str) -> int:
 
     """
     
-
     # movements +/-2 Letter and +/-1 number or +/-1 letter and +/-2 numbers
+    files, ranks = "ABCDEFGH", "87654321"
+    move_indexes = [(-2,-1),(-2,1),(-1,-2),(-1,2),(1,-2),(1,2),(2,-1),(2,1)]
+    for move in move_indexes:
+        file, rank = files.find(position[0]), ranks.find(position[1])
+        print(file, rank)
+    chessboard = np.array([[f"{l}{n}" for n in ranks] for l in files])
+    if not position in chessboard: 
+        raise ValueError(f"Invalid Value, Receive: {position}\n\t value not a valid position on chessboard\n{chessboard}")
+    
+    possible_moves = []
+    
 
-    chessboard = [f"{l}{n}" for n in range(8,0,-1) for l in "ABCDEFGH"]
-    knight_choices = []
-    print(chessboard)
-
-knight_moves("A1")
+knight_moves("C6")
 
 
