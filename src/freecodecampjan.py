@@ -296,8 +296,6 @@ def knight_moves(position: str) -> int:
         ]
     )
     return moves
-    
 
-knight_moves("A1")
 
 
