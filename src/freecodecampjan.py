@@ -373,3 +373,4 @@ def compare_energy(calories_burned: int, watt_hours_used: int) -> str:
     """
     cals_in_J, watts_in_J = calories_burned * 4184, watt_hours_used * 3600
     return "Equal" if cals_in_J == watts_in_J else ("Workout" if cals_in_J > watts_in_J else "Devices")
+
