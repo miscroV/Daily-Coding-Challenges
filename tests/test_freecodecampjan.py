@@ -201,3 +201,17 @@ def test_knight_moves(case, result):
 )
 def test_gets_free_shipping(case,result):
     assert gets_free_shipping(*case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ((250, 50)  , "Workout"),
+        ((100, 200) , "Devices"),
+        ((450, 523) , "Equal"  ),
+        ((300, 75)  , "Workout"),
+        ((200, 250) , "Devices"),
+        ((900, 1046), "Equal"  )
+    ]
+)
+def test_compare_energy(case, result):
+    assert compare_energy(*case) == result
