@@ -374,3 +374,8 @@ def compare_energy(calories_burned: int, watt_hours_used: int) -> str:
     cals_in_J, watts_in_J = calories_burned * 4184, watt_hours_used * 3600
     return "Equal" if cals_in_J == watts_in_J else ("Workout" if cals_in_J > watts_in_J else "Devices")
 
+def to_consonant_case(s):
+    s = ''.join([c.lower() if c in 'AEIOU' else ("_" if c in "-" else c) for c in s.upper()])
+    return s
+
+print(to_consonant_case("Hello-World"))
