@@ -375,7 +375,31 @@ def compare_energy(calories_burned: int, watt_hours_used: int) -> str:
     return "Equal" if cals_in_J == watts_in_J else ("Workout" if cals_in_J > watts_in_J else "Devices")
 
 def to_consonant_case(s):
-    s = ''.join([c.lower() if c in 'AEIOU' else ("_" if c in "-" else c) for c in s.upper()])
-    return s
+    """ Jan 20
 
-print(to_consonant_case("Hello-World"))
+Given a string representing a variable name, convert it to consonant case using the following rules:
+
+
+    Parameters
+    ----------
+    s: str
+        The input string to convert to consonant case
+    
+        
+    Returns
+    -------
+    str
+        The string converted to consonant case
+
+        
+    Notes
+    -----
+
+    All consonants should be converted to uppercase.
+
+    All vowels (a, e, i, o, u in any case) should be converted to lowercase.
+
+    All hyphens (-) should be converted to underscores (_).
+
+    """
+    return ''.join([c.lower() if c in 'AEIOU' else ("_" if c in "-" else c) for c in s.upper()])
