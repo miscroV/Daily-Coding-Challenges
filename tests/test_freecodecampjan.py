@@ -215,3 +215,19 @@ def test_gets_free_shipping(case,result):
 )
 def test_compare_energy(case, result):
     assert compare_energy(*case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ("helloworld",
+         "HeLLoWoRLD"),
+        ("HELLOWORLD",
+         "HeLLoWoRLD"),
+        ("_hElLO-WOrlD-",
+         "_HeLLo_WoRLD_"),
+        ("_~-generic_~-variable_~-name_~-here-~_",
+         "_~_GeNeRiC_~_VaRiaBLe_~_NaMe_~_HeRe_~_")
+    ]
+)
+def test_to_consonant_case(case, result):
+    assert to_consonant_case(case) == result
