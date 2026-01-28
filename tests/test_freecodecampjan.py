@@ -240,7 +240,9 @@ def test_to_consonant_case(case, result):
         ("Use `let` or `const` to declare a variable.",
          "Use <code>let</code> or <code>const</code> to declare a variable."),
         ("Run `npm install` then `npm start`.",
-         "Run <code>npm install</code> then <code>npm start</code>.")
+         "Run <code>npm install</code> then <code>npm start</code>."),
+         ("Run `npm install` then `npm start` and ` isnt converted.",
+         "Run <code>npm install</code> then <code>npm start</code> and ` isnt converted.")
     ]
 )
 def test_parse_inline_code(case,result):

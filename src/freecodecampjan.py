@@ -430,7 +430,7 @@ def parse_inline_code(markdown):
     Note: The console may not display HTML tags in strings when logging messages. Check the browser console to see logs with tags included.
     """
     openning_tag = True
-    while '`' in markdown:
+    while markdown.count("`") > 1 or not openning_tag:
         markdown = markdown.replace(
             '`',
             "<code>" if openning_tag else "</code>",
