@@ -248,5 +248,16 @@ def test_to_consonant_case(case, result):
 def test_parse_inline_code(case,result):
     assert parse_inline_code(case) == result
 
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ([92, 91, 90, 94, 89, 93], "A-"),
+        ([84, 89, 85, 100, 91, 88, 79], "B+"),
+        ([63, 69, 65, 66, 71, 64, 65], "D"),
+        ([97, 98, 99, 100, 96, 97, 98, 99, 100], "A+"),
+        ([75, 100, 88, 79, 80, 78, 64, 60], "C+"),
+        ([45, 48, 50, 52, 100, 54, 56, 58, 59], "F"),
+    ]
+)
 def test_get_average_grade(case,result):
     assert get_average_grade(case) == result
