@@ -247,3 +247,6 @@ def test_to_consonant_case(case, result):
 )
 def test_parse_inline_code(case,result):
     assert parse_inline_code(case) == result
+
+def test_get_average_grade(case,result):
+    assert get_average_grade(case) == result

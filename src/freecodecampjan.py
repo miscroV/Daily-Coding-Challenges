@@ -405,7 +405,7 @@ Given a string representing a variable name, convert it to consonant case using 
     """
     return ''.join([c.lower() if c in 'AEIOU' else ("_" if c in "-" else c) for c in s.upper()])
 
-def parse_inline_code(markdown):
+def parse_inline_code(markdown: str):
     """ Jan 21
     Given a string of Markdown that includes one or more inline code blocks, return the equivalent HTML string.
 
@@ -441,7 +441,7 @@ def parse_inline_code(markdown):
 
     return markdown
 
-def get_average_grade(scores):
+def get_average_grade(scores: list[int]):
     """ jan 22
     
     Given an array of exam scores (numbers), return the average score in form of a letter grade according to the following chart:
@@ -452,25 +452,41 @@ def get_average_grade(scores):
 
     Returns
     -------
+
     str
         The average letter grade of the scores.
+
     Notes
     -----
 
     Average Score	Letter Grade
+
     97-100	"A+"
+
     93-96	"A"
+
     90-92	"A-"
+
     87-89	"B+"
+
     83-86	"B"
+
     80-82	"B-"
+
     77-79	"C+"
+
     73–76	"C"
+
     70-72	"C-"
+
     67-69	"D+"
+
     63-66	"D"
+
     60–62	"D-"
+
     below 60	"F"
+
     Calculate the average by adding all scores in the array and dividing by the total number of scores.
     """ 
     grade_ranges = {
@@ -495,5 +511,3 @@ def get_average_grade(scores):
         low, high = value
         if low <= avg_grade <= high:
             return key
-
-print(get_average_grade([63, 69, 65, 66, 71, 64, 65]))
