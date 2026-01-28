@@ -231,3 +231,17 @@ def test_compare_energy(case, result):
 )
 def test_to_consonant_case(case, result):
     assert to_consonant_case(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ("Use `let` to declare the variable.",
+         "Use <code>let</code> to declare the variable."),
+        ("Use `let` or `const` to declare a variable.",
+         "Use <code>let</code> or <code>const</code> to declare a variable."),
+        ("Run `npm install` then `npm start`.",
+         "Run <code>npm install</code> then <code>npm start</code>.")
+    ]
+)
+def test_parse_inline_code(case,result):
+    assert parse_inline_code(case) == result
