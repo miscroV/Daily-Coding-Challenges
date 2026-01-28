@@ -1,5 +1,6 @@
 import math
 import re
+import statistics
 
 def vowel_case(s: str) -> str:
     """ Jan 6
@@ -439,3 +440,60 @@ def parse_inline_code(markdown):
         openning_tag = not openning_tag
 
     return markdown
+
+def get_average_grade(scores):
+    """ jan 22
+    
+    Given an array of exam scores (numbers), return the average score in form of a letter grade according to the following chart:
+
+    Parameters
+    ----------
+    scores: list(int)
+
+    Returns
+    -------
+    str
+        The average letter grade of the scores.
+    Notes
+    -----
+
+    Average Score	Letter Grade
+    97-100	"A+"
+    93-96	"A"
+    90-92	"A-"
+    87-89	"B+"
+    83-86	"B"
+    80-82	"B-"
+    77-79	"C+"
+    73–76	"C"
+    70-72	"C-"
+    67-69	"D+"
+    63-66	"D"
+    60–62	"D-"
+    below 60	"F"
+    Calculate the average by adding all scores in the array and dividing by the total number of scores.
+    """ 
+    grade_ranges = {
+        "A+": (97, 100),
+        "A":  (93, 97),
+        "A-": (90, 92),
+        "B+": (87, 89),
+        "B":  (83, 86),
+        "B-": (80, 82),
+        "C+": (77, 79),
+        "C":  (73, 76),
+        "C-": (70, 72),
+        "D+": (67, 69),
+        "D":  (63, 66),
+        "D-": (60, 62),
+        "F":  (0, 59)
+    }
+    avg_grade = math.floor(statistics.mean(scores))
+    if not 0 <= avg_grade <= 100: raise ValueError("Average of list outside grade range")
+
+    for key, value in grade_ranges.items():
+        low, high = value
+        if low <= avg_grade <= high:
+            return key
+
+print(get_average_grade([63, 69, 65, 66, 71, 64, 65]))
