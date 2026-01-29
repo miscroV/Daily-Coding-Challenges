@@ -513,7 +513,7 @@ def get_average_grade(scores: list[int]) -> str:
             return key
 
 def is_valid_hex(s: str) -> bool:
-    """jan 22
+    """jan 23
     
     Given a string, determine whether it is a valid CSS hex color. A valid CSS hex color must:
 
@@ -530,3 +530,48 @@ def is_valid_hex(s: str) -> bool:
     """
     return s[0] == "#" and len(s[1:]) in (3,6) and all([c.lower() in "0123456789abcdef" for c in s[1:]])
 
+def get_bingo_letter(n: int) -> str:
+    """ Jan 24
+    
+    Given a number, return the bingo letter associated with it (capitalized). Bingo numbers are grouped as follows:
+
+    Parameters
+    ----------
+    n: int
+        an integer relating to a bingo card between 1 and 75 inclusive
+
+    Returns
+    -------
+    str
+        The Bingo letter that would be associated with the integer
+
+    Notes
+    -----
+    
+    Letter	Number Range
+
+    "B"	1-15
+
+    "I"	16-30
+
+    "N"	31-45
+
+    "G"	46-60
+
+    "O"	61-75
+
+    """
+    if 1 < n < 75: raise ValueError(f"Invalid input {n},\tValue must be between 1 and 75")
+    bingo_ranges = {
+        "B": (1,15),
+        "I": (16,30),
+        "N": (31,45),
+        "G": (46,60),
+        "O": (61,75)
+    }
+    # This is a linear search on the ranges which is effecient for small data sets.
+    # so kindof a modified selection sort?
+    for key, range in bingo_ranges.items():
+        low, high = range
+        if low <= n <= high:
+            return key
