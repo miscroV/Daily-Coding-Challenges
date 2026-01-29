@@ -261,3 +261,19 @@ def test_parse_inline_code(case,result):
 )
 def test_get_average_grade(case,result):
     assert get_average_grade(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        ("#123", True),
+        ("#123abc", True),
+        ("#ABCDEF", True),
+        ("#0a1B2c", True),
+        ("#12G", False),
+        ("#1234567", False),
+        ("#12 3", False),
+        ("fff", False)
+    ]
+)
+def test_is_valid_hex(case, result):
+    assert is_valid_hex(case) == result
