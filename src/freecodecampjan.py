@@ -575,3 +575,32 @@ def get_bingo_letter(n: int) -> str:
         low, high = range
         if low <= n <= high:
             return key
+
+def scale_image(size: str, scale: float | int) -> str:
+    """ Jan 25
+    
+    Given a string representing the width and height of an image, and a number to scale the image, return the scaled width and height.
+
+    Parameters
+    ----------
+    size: str
+        The size of an image as 'WxH' format in a string
+    scale: float | int
+        The value to scale WxH by.
+
+    Returns
+    -------
+    str
+        The scaled WxH value
+
+    Notes
+    -----
+
+    The input string is in the format "WxH". For example, "800x600".
+
+    The scale is a number to multiply the width and height by.
+
+    Return the scaled dimensions in the same "WxH" format.
+
+    """
+    return "x".join([str(int(i * scale)) for i in map(int, size.split("x"))])  
