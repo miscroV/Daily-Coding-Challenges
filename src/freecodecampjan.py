@@ -405,7 +405,7 @@ Given a string representing a variable name, convert it to consonant case using 
     """
     return ''.join([c.lower() if c in 'AEIOU' else ("_" if c in "-" else c) for c in s.upper()])
 
-def parse_inline_code(markdown: str):
+def parse_inline_code(markdown: str) -> str:
     """ Jan 21
     Given a string of Markdown that includes one or more inline code blocks, return the equivalent HTML string.
 
@@ -441,7 +441,7 @@ def parse_inline_code(markdown: str):
 
     return markdown
 
-def get_average_grade(scores: list[int]):
+def get_average_grade(scores: list[int]) -> str:
     """ jan 22
     
     Given an array of exam scores (numbers), return the average score in form of a letter grade according to the following chart:
@@ -511,3 +511,22 @@ def get_average_grade(scores: list[int]):
         low, high = value
         if low <= avg_grade <= high:
             return key
+
+def is_valid_hex(s: str) -> bool:
+    """jan 22
+    
+    Given a string, determine whether it is a valid CSS hex color. A valid CSS hex color must:
+
+    Parameters
+    ----------
+    s: str
+        A string possibly containing a hexidecimal value. 
+
+    Returns
+    
+    Start with a #, and
+    be followed by either 3 or 6 hexadecimal characters.
+    Hexadecimal characters are numbers 0 through 9 and letters a through f (case-insensitive).
+    """
+    return s[0] == "#" and len(s[1:]) in (3,6) and all([c.lower() in "0123456789abcdef" for c in s[1:]])
+
