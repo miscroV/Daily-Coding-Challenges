@@ -290,3 +290,16 @@ def test_is_valid_hex(case, result):
 )
 def test_get_bingo_letter(case,result):
     assert get_bingo_letter(case) == result
+
+@pytest.mark.parametrize(
+    "case_wxh, case_scale, result",
+    [
+        ("800x600", 2, "1600x1200"),
+        ("100x100", 10, "1000x1000"),
+        ("1024x768", 0.5, "512x384"),
+        ("300x200", 1.5, "450x300")
+    ]
+)
+def test_scale_image(case_wxh, case_scale, result):
+    assert scale_image(case_wxh, case_scale) == result
+
