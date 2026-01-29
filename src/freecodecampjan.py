@@ -604,3 +604,32 @@ def scale_image(size: str, scale: float | int) -> str:
 
     """
     return "x".join([str(int(i * scale)) for i in map(int, size.split("x"))])  
+
+def fizz_buzz_mini(n):
+    """ Jan 26
+    
+    Given an integer, return a string based on the following rules:
+
+    If the number is divisible by 3, return "Fizz".
+
+    If the number is divisible by 5, return "Buzz".
+
+    If the number is divisible by both 3 and 5, return "FizzBuzz".
+
+    Otherwise, return the given number as a string.
+
+    Parameters
+    ----------
+    n: int
+        integer to evaluate
+
+    Returns
+    -------
+    str
+        FizzBuzz string or quoted int
+
+    """
+    result = ""
+    if n % 3 == 0: result += "Fizz"
+    if n % 5 == 0: result += "Buzz"
+    return result if result != "" else str(n)
