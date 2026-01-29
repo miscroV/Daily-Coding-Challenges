@@ -277,3 +277,16 @@ def test_get_average_grade(case,result):
 )
 def test_is_valid_hex(case, result):
     assert is_valid_hex(case) == result
+
+@pytest.mark.parametrize(
+    "case, result",
+    [
+        (75, "O"),
+        (54, "G"),
+        (25, "I"),
+        (38, "N"),
+        (11, "B")
+    ]
+)
+def test_get_bingo_letter(case,result):
+    assert get_bingo_letter(case) == result

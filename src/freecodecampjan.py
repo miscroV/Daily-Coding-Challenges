@@ -561,7 +561,7 @@ def get_bingo_letter(n: int) -> str:
     "O"	61-75
 
     """
-    if 1 < n < 75: raise ValueError(f"Invalid input {n},\tValue must be between 1 and 75")
+    if not 1 <= n <= 75: raise ValueError(f"Invalid input {n},\tValue must be between 1 and 75")
     bingo_ranges = {
         "B": (1,15),
         "I": (16,30),
