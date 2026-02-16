@@ -1,6 +1,14 @@
 # Daily-Coding-Challenges
 Daily coding challenge solutions.
 
+Archived on Feb 16, Last challenge completed Jan20. 
+Free code camp challenges are too minimal to keep forward momentum. 
+
+I did learn about doc strings and some negative space coding while
+doing these challenges. 
+
+Future projects will continue. 
+
 ## Purpose
 Using this repo to really get used to the git workflow. Every new challenge 
 I will make a new branch to create the new challenge, add tests and docs, 
